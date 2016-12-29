@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.greatbook">
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true"
+        android:name=".App"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name" android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.main.activity.MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.book.BookKindActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.book.BookDesActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.book.BookDetailActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.LoginActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.RegisterActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.TalkAboutActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.book.BookTalkActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.MyPrivateAdjustActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.ZhiHuListActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.ZhiHuDetailActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.WeChatDetailActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.main.activity.WeChatListActivity"
+            android:launchMode="singleTask"/>
+        <meta-data
+            android:name="com.example.greatbook.utils.MyGlideMoudle"
+            android:value="GlideModule" />
+    </application>
+
+</manifest>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <include
+       android:id="@+id/top"
+       layout="@layout/include_talk_about"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/gradient_black"
+        android:layout_height="match_parent">
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/talkabout_margin"
+            android:hint="说点啥..."
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:gravity="top"
+            android:padding="6dp"
+            android:layout_height="120dp"
+            android:background="@drawable/round_trans"/>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/et_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_trans"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="140dp"
+                android:text="添加图片"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_height="140dp" />
+            <ImageView
+                android:id="@+id/iv_photo"
+                android:layout_width="140dp"
+                android:layout_height="140dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/talkabout_margin"
+            android:layout_marginRight="@dimen/talkabout_margin"
+            android:layout_marginLeft="@dimen/talkabout_margin"
+            android:orientation="horizontal"
+            android:layout_height="40dp">
+            <TextView
+                android:id="@+id/btn_takephoto"
+                android:text="拍照"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="@drawable/round_black_left"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/btn_ok"
+                android:text="吐槽"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="@color/black"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+            <TextView
+                android:id="@+id/btn_getphoto"
+                android:text="相册"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:background="@drawable/round_black_right"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

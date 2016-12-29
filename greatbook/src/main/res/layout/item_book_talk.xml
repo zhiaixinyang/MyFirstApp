@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/round_white"
+    android:layout_marginTop="@dimen/main_margin"
+    android:layout_marginLeft="@dimen/main_margin"
+    android:layout_marginRight="@dimen/main_margin"
+    android:layout_height="80dp">
+
+    <com.example.greatbook.widght.CircleImageView
+        android:layout_width="35dp"
+        android:id="@+id/iv_avatar_book_talk"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/book_talk_margin"
+        android:layout_marginTop="@dimen/book_talk_margin"
+        android:src="@mipmap/no_avatar"
+        android:layout_height="35dp" />
+    <TextView
+        android:id="@+id/tv_name_book_talk"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        android:layout_marginLeft="@dimen/book_talk_margin"
+        android:text="书心用户"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/iv_avatar_book_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"/>
+
+    <TextView
+        android:id="@+id/tv_content_book_talk"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/iv_avatar_book_talk"
+        android:layout_toRightOf="@+id/iv_avatar_book_talk"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/book_talk_margin"
+        android:layout_marginRight="@dimen/book_talk_margin"
+        android:maxLines="2"
+        tools:text="书评内容"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_time_book_talk"
+        android:text="1111-11-11"
+        android:textColor="@color/gray"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginRight="@dimen/book_talk_margin"
+        android:layout_alignRight="@+id/tv_content_book_talk"
+        />
+</RelativeLayout>

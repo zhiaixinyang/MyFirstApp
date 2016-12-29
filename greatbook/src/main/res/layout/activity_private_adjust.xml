@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/srf_adjust"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:honor="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/light_gray"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/topPanel"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+            <ImageView
+                android:id="@+id/avatar_bg"
+                android:layout_width="match_parent"
+                android:scaleType="fitXY"
+                android:background="@color/white"
+                android:layout_height="210dp"/>
+            <com.example.greatbook.widght.CircleImageView
+                android:id="@+id/iv_avatar_adjust"
+                android:src="@mipmap/no_avatar"
+                android:layout_alignParentBottom="true"
+                honor:civ_border_color="@color/white"
+                honor:civ_border_width="2dp"
+                android:layout_centerHorizontal="true"
+                android:layout_width="@dimen/myprivate_width"
+                android:layout_height="@dimen/myprivate_width" />
+            <TextView
+                android:background="@drawable/round_white"
+                android:text="拍照"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_alignTop="@+id/iv_avatar_adjust"
+                android:layout_toLeftOf="@+id/iv_avatar_adjust"
+                android:id="@+id/btn_takephoto"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:background="@drawable/round_white"
+                android:text="相册"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_alignTop="@+id/iv_avatar_adjust"
+                android:id="@+id/btn_getphoto"
+                android:layout_toRightOf="@+id/iv_avatar_adjust"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="40dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/topPanel"
+            android:background="@drawable/round_white"
+            android:layout_margin="@dimen/private_adjust_margin"
+            android:layout_height="@dimen/private_adjust_item_width">
+            <TextView
+                android:id="@+id/one"
+                android:layout_width="wrap_content"
+                android:text="昵称"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/private_adjust_margin"
+                android:layout_marginRight="@dimen/private_adjust_margin"
+                android:layout_height="wrap_content" />
+            <View
+                android:id="@+id/two"
+                android:layout_width="1dp"
+                android:layout_toRightOf="@+id/one"
+                android:background="@color/black"
+                android:layout_marginRight="@dimen/private_adjust_margin"
+                android:layout_centerVertical="true"
+                android:layout_height="20dp"/>
+            <EditText
+                android:id="@+id/et_name_adjust"
+                android:layout_toRightOf="@+id/two"
+                android:textSize="18sp"
+                android:padding="4dp"
+                android:textColorHighlight="@color/black"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/btn_ok_adjust"
+            android:text="确定"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:background="@drawable/round_white"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_marginRight="@dimen/private_adjust_margin"
+            android:layout_marginLeft="@dimen/private_adjust_margin"
+            android:layout_marginBottom="@dimen/private_adjust_margin"
+            android:layout_height="@dimen/private_adjust_item_width" />
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

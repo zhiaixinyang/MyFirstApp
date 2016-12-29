@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/light_gray"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/top"
+        layout="@layout/include_actionbar_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srf_book_talk"
+        android:layout_below="@+id/top"
+        android:layout_above="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_book_talk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/trans">
+        <EditText
+            android:id="@+id/et_book_talk"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="4dp"
+            android:hint="吐槽一下这本书..."
+            android:textColorHighlight="@color/black"
+            android:maxLines="1"
+            android:layout_centerVertical="true"
+            android:textColorHint="@color/black"
+            android:layout_toLeftOf="@+id/view"
+            android:background="@color/trans"/>
+        <View
+            android:id="@+id/view"
+            android:layout_width="2dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/btn_book_talk"
+            android:layout_marginRight="8dp"
+            android:background="@color/black"/>
+        <LinearLayout
+            android:id="@+id/btn_book_talk"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="40dp">
+            <TextView
+                android:id="@+id/talk_about"
+                android:layout_width="wrap_content"
+                android:text="吐槽"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_height="40dp" />
+            <TextView
+                android:id="@+id/icon_right_black"
+                android:layout_width="30dp"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_right_black"
+                android:layout_height="30dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

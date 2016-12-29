@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    android:id="@+id/srf_myprivate"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:honor="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/light_gray"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/main_bottom_margin"
+            android:layout_marginRight="@dimen/main_bottom_margin"
+            android:layout_marginBottom="@dimen/main_bottom_margin"
+            android:background="@drawable/round_white"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/btn_exit"
+                android:text="退出当前账号"
+                android:textColor="@color/black"
+                android:textSize="@dimen/myprivate_size"
+                android:gravity="center"
+                android:background="@drawable/round_stroke_black"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/main_bottom_margin"
+                android:layout_marginRight="@dimen/main_bottom_margin"
+                android:layout_marginBottom="@dimen/main_bottom_margin"
+                android:layout_height="@dimen/myprivate_margin_h" />
+            <TextView
+                android:id="@+id/btn_adjust"
+                android:text="修改信息"
+                android:textColor="@color/black"
+                android:textSize="@dimen/myprivate_size"
+                android:gravity="center"
+                android:background="@drawable/round_stroke_black"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/main_bottom_margin"
+                android:layout_marginRight="@dimen/main_bottom_margin"
+                android:layout_marginBottom="@dimen/main_bottom_margin"
+                android:layout_height="@dimen/myprivate_margin_h" />
+        </LinearLayout>
+        <com.example.greatbook.widght.CircleImageView
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/myprivate_width"
+            android:id="@+id/iv_avatar"
+            honor:civ_border_color="@color/white"
+            honor:civ_border_width="3dp"
+            android:src="@mipmap/no_avatar"
+            android:layout_height="@dimen/myprivate_width" />
+        <TextView
+            android:id="@+id/tvName"
+            android:text="书心用户"
+            android:textColor="@color/blue"
+            android:layout_below="@+id/iv_avatar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textSize="@dimen/myprivate_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

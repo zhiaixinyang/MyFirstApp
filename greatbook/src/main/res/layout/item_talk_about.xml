@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/round_white"
+    android:layout_marginBottom="@dimen/main_margin"
+    android:layout_marginLeft="@dimen/main_margin"
+    android:layout_marginRight="@dimen/main_margin"
+    android:layout_height="100dp">
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/talkabout_item_margin"
+        android:layout_height="35dp">
+        <ImageView
+            android:layout_width="35dp"
+            android:id="@+id/iv_avatar_item_talkabout"
+            android:src="@mipmap/no_avatar"
+            android:layout_alignParentLeft="true"
+            android:layout_height="35dp" />
+        <TextView
+            android:id="@+id/tv_name_item_talkabout"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
+            android:layout_marginLeft="@dimen/talkabout_item_margin"
+            android:layout_centerVertical="true"
+            android:text="书心用户"
+            android:layout_toRightOf="@+id/iv_avatar_item_talkabout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_time_item_talkabout"
+        android:text="1111-11-11"
+        android:textColor="@color/gray"
+        android:layout_toLeftOf="@+id/iv_photo_item_talkabout"
+        android:layout_alignBottom="@+id/iv_photo_item_talkabout"
+        android:textSize="10sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/iv_photo_item_talkabout"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/no_photo"
+        android:layout_marginRight="@dimen/talkabout_item_margin"
+        android:layout_alignParentRight="true"
+        />
+    <TextView
+        android:id="@+id/tv_content_item_talkabout"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/top"
+        android:layout_toLeftOf="@+id/iv_photo_item_talkabout"
+        android:gravity="left"
+        android:layout_marginLeft="@dimen/talkabout_item_margin"
+        android:maxLines="3"
+        tools:text="吐槽内容"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

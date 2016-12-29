@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <LinearLayout
+        android:layout_width="210dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="210dp">
+        <ImageView
+            android:layout_width="135dp"
+            android:background="@mipmap/flower"
+            android:layout_height="65dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="正在调戏服务器"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            style="@android:style/Widget.ProgressBar.Inverse"
+            android:visibility="visible"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
+
+

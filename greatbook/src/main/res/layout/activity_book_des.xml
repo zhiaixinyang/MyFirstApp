@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/head"
+        layout="@layout/include_actionbar_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/des_srf_book"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+            <LinearLayout
+                android:id="@+id/topPanel"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/des_iv_book_photo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp" />
+                <android.support.v4.widget.NestedScrollView
+                    android:id="@+id/nestedScrollView"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/round_stroke_black"
+                    android:layout_toRightOf="@+id/des_iv_book_photo"
+                    android:layout_height="120dp">
+                    <TextView
+                        android:id="@+id/des_tv_book_content"
+                        android:textColor="@color/black"
+                        android:padding="4dp"
+                        android:text="全书简介"
+                        android:gravity="center|left"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </android.support.v4.widget.NestedScrollView>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/middle"
+                android:layout_below="@+id/topPanel"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/trans"
+                android:layout_height="40dp">
+                <LinearLayout
+                    android:id="@+id/des_btn_talk"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@mipmap/icon_talk_black"/>
+                    <TextView
+                        android:id="@+id/tv_book_talk_num"
+                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:text="吐槽"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_below="@+id/middle"
+                android:id="@+id/des_rlv_catalogue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

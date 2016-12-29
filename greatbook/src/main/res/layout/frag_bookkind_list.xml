@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:honor="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/light_gray"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/topPanel"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/main_margin"
+        android:layout_height="120dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="120dp">
+            <com.example.greatbook.widght.RoundImageView
+                android:id="@+id/btn_zhihu"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                honor:borderRadius="8dp"
+                honor:type="round"
+                android:layout_marginRight="@dimen/main_margin"
+                android:src="@mipmap/icon_main_one"
+                android:layout_height="match_parent" />
+            <com.example.greatbook.widght.RoundImageView
+                android:id="@+id/btn_weixin"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                honor:borderRadius="8dp"
+                honor:type="round"
+                android:src="@mipmap/icon_main_two"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_height="35dp">
+            <TextView
+                android:text="知乎精选"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginRight="@dimen/main_margin"
+                android:gravity="center"
+                android:background="@drawable/bottom_round_trans_trans"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <TextView
+                android:text="微信精选"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/bottom_round_trans_trans"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.example.greatbook.widght.AdHeadline
+        android:id="@+id/ad_headline_headline"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/topPanel"
+        android:layout_height="30dp"/>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_below="@+id/ad_headline_headline"
+        android:id="@+id/srf_bookkindlist"
+        android:layout_marginBottom="@dimen/main_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_bookkindlist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

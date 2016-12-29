@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="250dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:background="@drawable/round_white"
+            android:text="拍照"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:id="@+id/btn_takephoto"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:background="@drawable/round_white"
+            android:text="相册"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:id="@+id/btn_getphoto"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+    </LinearLayout>
+</LinearLayout>
+
+
+

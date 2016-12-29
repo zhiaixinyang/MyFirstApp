@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+    <include
+        layout="@layout/include_actionbar_back"
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_detail_title"
+        android:layout_below="@+id/head"
+        android:text="章节题目"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:padding="8dp"
+        android:layout_height="wrap_content" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srf_wait_net"
+        android:layout_below="@+id/tv_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nsvScroller"
+            android:overScrollMode="never"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.tencent.smtt.sdk.WebView
+                android:id="@+id/webView"
+                android:layout_below="@+id/tv_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:id="@+id/bottom_view"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_height="45dp">
+        <TextView
+            android:id="@+id/btn_front"
+            android:text="上一章"
+            android:gravity="center"
+            android:layout_margin="4dp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/btn_late"
+            android:text="下一章"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_margin="4dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_black"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</RelativeLayout>
