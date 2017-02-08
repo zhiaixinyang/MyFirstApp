@@ -6,12 +6,12 @@ import android.content.Context;
 
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.AVObject;
-import com.example.greatbook.beans.leancloud.BookTalkBean;
-import com.example.greatbook.beans.leancloud.LBookDesBean;
-import com.example.greatbook.beans.leancloud.LBookDesCatalogue;
-import com.example.greatbook.beans.leancloud.LBookKindBean;
-import com.example.greatbook.beans.leancloud.LBookKindListBean;
-import com.example.greatbook.beans.leancloud.TalkAboutBean;
+import com.example.greatbook.model.leancloud.BookTalkBean;
+import com.example.greatbook.model.leancloud.LBookDesBean;
+import com.example.greatbook.model.leancloud.LBookDesCatalogue;
+import com.example.greatbook.model.leancloud.LBookKindBean;
+import com.example.greatbook.model.leancloud.LBookKindListBean;
+import com.example.greatbook.model.leancloud.TalkAboutBean;
 import com.example.greatbook.constants.Constants;
 
 import java.util.HashSet;

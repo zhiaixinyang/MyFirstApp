@@ -1,10 +1,8 @@
 package com.example.greatbook.ui.book;
 
-import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,16 +14,14 @@ import com.avos.avoscloud.SaveCallback;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.leancloud.BookTalkBean;
+import com.example.greatbook.model.leancloud.BookTalkBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.book.adapter.BookTalkAdapter;
-import com.example.greatbook.ui.book.presenter.BookTalkPresenter;
-import com.example.greatbook.ui.book.presenter.BookTalkPresenterImpl;
+import com.example.greatbook.ui.presenter.BookTalkPresenter;
+import com.example.greatbook.ui.presenter.BookTalkPresenterImpl;
 import com.example.greatbook.ui.book.view.BookTalkView;
-import com.example.greatbook.utils.StringUtil;
-import com.example.greatbook.utils.SystemBarTintManager;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
-import com.example.greatbook.widght.CircleImageView;
 
 import java.util.List;
 
@@ -76,7 +72,7 @@ public class BookTalkActivity extends NewBaseActivity<BookTalkPresenterImpl> imp
     }
 
     private void okTalk() {
-        if (!StringUtil.isEmpty(etBookTalk.getText().toString())){
+        if (!StringUtils.isEmpty(etBookTalk.getText().toString())){
             BookTalkBean bookTalkBean =new BookTalkBean();
             bookTalkBean.setBelongId(AVUser.getCurrentUser().getObjectId());
             bookTalkBean.setContent(etBookTalk.getText().toString());
@@ -108,7 +104,7 @@ public class BookTalkActivity extends NewBaseActivity<BookTalkPresenterImpl> imp
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         srfBookTalk.setRefreshing(false);
     }
 

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.BookKindListBean;
+import com.example.greatbook.model.BookKindListBean;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 
 import java.util.List;

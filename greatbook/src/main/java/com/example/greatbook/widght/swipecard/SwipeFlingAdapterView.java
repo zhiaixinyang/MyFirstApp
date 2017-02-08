@@ -7,6 +7,7 @@ import android.database.DataSetObserver;
 import android.graphics.PointF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Adapter;
 import android.widget.FrameLayout;
 
 import com.example.greatbook.R;
+import com.example.greatbook.utils.DpUtils;
 
 /**
  * Created by dionysis_lorentzos on 5/8/14
@@ -106,7 +108,9 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
         }else {
             View topCard = getChildAt(LAST_OBJECT_IN_STACK);
             if(mActiveCard!=null && topCard!=null && topCard==mActiveCard) {
+
                 if (this.flingCardListener.isTouching()) {
+
                     PointF lastPoint = this.flingCardListener.getLastPoint();
                     if (this.mLastTouchPoint == null || !this.mLastTouchPoint.equals(lastPoint)) {
                         this.mLastTouchPoint = lastPoint;
@@ -212,11 +216,15 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
     *  Set the top view and add the fling listener
     */
     private void setTopView() {
+        int offSize=8;
         if(getChildCount()>0){
 
             mActiveCard = getChildAt(LAST_OBJECT_IN_STACK);
             if(mActiveCard!=null) {
-
+                mActiveCard.layout(mActiveCard.getLeft()+ DpUtils.dp2px(offSize),
+                        mActiveCard.getTop()+DpUtils.dp2px(offSize),
+                        mActiveCard.getRight()+DpUtils.dp2px(offSize),
+                        mActiveCard.getBottom()+DpUtils.dp2px(offSize));
                 flingCardListener = new FlingCardListener(mActiveCard, mAdapter.getItem(0),
                         ROTATION_DEGREES, new FlingCardListener.FlingListener() {
 

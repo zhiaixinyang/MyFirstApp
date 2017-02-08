@@ -23,4 +23,74 @@
         <attr name="min_adapter_stack" format="integer"/>
         <attr name="max_visible" format="integer"/>
     </declare-styleable>
+
+    <!-- 特殊动画 -->
+    <declare-styleable name="refresh">
+        <attr name="refresh_line_color" format="color" />
+        <attr name="refresh_line_width" format="integer" />
+    </declare-styleable>
+
+    <!-- 多选，单选的Layout -->
+    <declare-styleable name="FlowLayoutItemTags">
+        <attr name="item_backgroundColor" format="reference|color" />
+        <attr name="item_selectedBackgroundColor" format="reference|color" />
+
+        <attr name="item_horizontalSpacing" format="dimension" />
+        <attr name="item_verticalSpacing" format="dimension" />
+        <attr name="item_horizontalPadding" format="dimension" />
+        <attr name="item_verticalPadding" format="dimension" />
+
+        <attr name="item_textColor" format="color" />
+        <attr name="item_selectedTextColor" format="reference|color" />
+        <attr name="item_textSize" format="dimension" />
+
+        <!-- 边框圆角半径-->
+        <attr name="item_radius" format="dimension" />
+        <attr name="item_bottomLeftRadius" format="dimension" />
+        <attr name="item_bottomRightRadius" format="dimension" />
+        <attr name="item_topLeftRadius" format="dimension" />
+        <attr name="item_topRightRadius" format="dimension" />
+        <!-- 边框颜色-->
+        <attr name="item_strokeColor" format="reference|color" />
+        <attr name="item_selectedStrokeColor" format="reference|color" />
+        <!-- 边框宽度-->
+        <attr name="item_strokeWidth" format="dimension" />
+        <!-- 是否多选-->
+        <attr name="item_flowChooseable" format="boolean" />
+        <attr name="item_singleLine" format="boolean" />
+
+        <!--单位dp,为了适应wrap_content用integer-->
+        <attr name="item_width" format="integer|enum">
+            <enum name="wrap_content" value="-2"/>
+            <enum name="match_parent" value="-1"/>
+        </attr>
+        <attr name="item_height" format="integer|enum">
+            <enum name="wrap_content" value="-2"/>
+            <enum name="match_parent" value="-1"/>
+        </attr>
+        <attr name="item_maxEms" format="integer" />
+    </declare-styleable>
+
+    <!-- 和上面的为一体 -->
+    <declare-styleable name="Themes">
+        <attr name="FlowLayoutTagsStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- 折叠式TextView -->
+    <declare-styleable name="ExpandableTextView">
+        <attr name="maxCollapsedLines" format="integer" />
+        <attr name="animDuration" format="integer" />
+        <attr name="contentTextSize" format="dimension" />
+        <attr name="contentTextColor" format="color" />
+        <attr name="expandDrawable" format="reference" />
+        <attr name="expandText" format="string" />
+        <attr name="collapseDrawable" format="reference" />
+        <attr name="collapseText" format="string" />
+        <attr name="expandCollapseTextColor" format="color" />
+        <attr name="DrawableAndTextGravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>

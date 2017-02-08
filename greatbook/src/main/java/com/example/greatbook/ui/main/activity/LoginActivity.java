@@ -2,11 +2,7 @@ package com.example.greatbook.ui.main.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -18,9 +14,9 @@ import com.example.greatbook.App;
 import com.example.greatbook.MySharedPreferences;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
-import com.example.greatbook.beans.leancloud.User;
+import com.example.greatbook.model.leancloud.User;
 import com.example.greatbook.utils.NetUtil;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 import com.example.greatbook.utils.TransWindowUtils;
 import com.example.greatbook.utils.WaitNetPopupWindowUtils;
@@ -73,7 +69,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         if (NetUtil.isNetworkAvailable()) {
             final String username = etAccount.getText().toString();
             String password = etPassWord.getText().toString();
-            if (!StringUtil.isEmpty(username)&&!StringUtil.isEmpty(password)){
+            if (!StringUtils.isEmpty(username)&&!StringUtils.isEmpty(password)){
                 waitNetPopupWindowUtils.showWaitNetPopupWindow(this);
                 new User().logInInBackground(username, password, new LogInCallback<AVUser>() {
                     @Override
@@ -104,5 +100,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void onDismiss() {
         TransWindowUtils.setBackgroundAlpha(this, 1f);
+    }
+
+    @Override
+    public void showError(String msg) {
+        ToastUtil.toastShort(msg);
     }
 }

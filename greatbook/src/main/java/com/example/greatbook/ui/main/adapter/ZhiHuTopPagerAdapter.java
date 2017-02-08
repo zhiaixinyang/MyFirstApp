@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.DailyListBean;
+import com.example.greatbook.model.DailyListBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.main.activity.ZhiHuDetailActivity;
 import com.example.greatbook.utils.GlideUtils;
@@ -53,7 +53,7 @@ public class ZhiHuTopPagerAdapter extends PagerAdapter {
         View view = LayoutInflater.from(context).inflate(R.layout.item_zhihu_top_pager, container, false);
         ImageView ivImage = (ImageView) view.findViewById(R.id.iv_top_image);
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_top_title);
-        GlideUtils.load(context, datas.get(position).getImage(),ivImage);
+        GlideUtils.load(datas.get(position).getImage(),ivImage);
         tvTitle.setText(datas.get(position).getTitle());
         final int id = datas.get(position).getId();
         view.setOnClickListener(new View.OnClickListener() {

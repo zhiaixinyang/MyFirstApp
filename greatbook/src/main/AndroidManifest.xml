@@ -46,6 +46,14 @@
         <meta-data
             android:name="com.example.greatbook.utils.MyGlideMoudle"
             android:value="GlideModule" />
+        <activity android:name=".ui.BookMainListActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.ExploreActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.GrammarContentActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".ui.GrammarMainActivity"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>

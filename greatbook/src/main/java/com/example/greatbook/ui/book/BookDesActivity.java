@@ -14,17 +14,17 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.BookDesBean;
-import com.example.greatbook.beans.BookKindBean;
-import com.example.greatbook.beans.leancloud.BookTalkBean;
+import com.example.greatbook.model.BookDesBean;
+import com.example.greatbook.model.BookKindBean;
+import com.example.greatbook.model.leancloud.BookTalkBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 import com.example.greatbook.ui.book.adapter.BookDesAdapter;
-import com.example.greatbook.ui.book.presenter.BookDesPresenter;
-import com.example.greatbook.ui.book.presenter.BookDesPresenterImpl;
+import com.example.greatbook.ui.presenter.BookDesPresenter;
+import com.example.greatbook.ui.presenter.BookDesPresenterImpl;
 import com.example.greatbook.ui.book.view.BookDesView;
 import com.example.greatbook.utils.GlideUtils;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 
 import java.util.List;
@@ -77,7 +77,7 @@ public class BookDesActivity extends NewBaseActivity<BookDesPresenterImpl> imple
                 urlPhoto = bookKindBean.getUrlPhoto();
                 bookName = bookKindBean.getTitle();
                 tvTitleText.setText(bookName);
-                GlideUtils.load(BookDesActivity.this, urlPhoto, ivBookPhoto);
+                GlideUtils.load(urlPhoto, ivBookPhoto);
             }
         }
         srfBook.setOnRefreshListener(this);
@@ -99,10 +99,10 @@ public class BookDesActivity extends NewBaseActivity<BookDesPresenterImpl> imple
                     toDetail.putExtra(IntentConstants.TO_BOOK_DETAIL, datas.getCatalogueList().get(position).getUrl());
                     toDetail.putExtra(IntentConstants.TO_BOOK_DETAIL_TITLE_NAME, bookName);
                     toDetail.putExtra(IntentConstants.TO_BOOK_DETAIL_FIRST_NUM_ID,
-                            String.valueOf(StringUtil.getNumFromString(
+                            String.valueOf(StringUtils.getNumFromString(
                                     datas.getCatalogueList().get(0).getUrl())));
                     toDetail.putExtra(IntentConstants.TO_BOOK_DETAIL_END_NUM_ID,
-                            String.valueOf(StringUtil.getNumFromString(
+                            String.valueOf(StringUtils.getNumFromString(
                                     datas.getCatalogueList().get(datas.getCatalogueList().size() - 1).getUrl())));
                     toDetail.putExtra(IntentConstants.TO_BOOK_DES_POSITION, position_);
                     startActivity(toDetail);
@@ -127,7 +127,7 @@ public class BookDesActivity extends NewBaseActivity<BookDesPresenterImpl> imple
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         srfBook.setRefreshing(false);
     }
 

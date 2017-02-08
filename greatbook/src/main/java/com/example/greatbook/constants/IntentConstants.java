@@ -26,4 +26,6 @@ public class IntentConstants {
     public static String WEXIN_ID="wexin_id";
     public static String WEXIN_TECH="wexin_tech";
 
+    public static String OPEN_CONTENT_KIND_INDEX ="get_grammar_kind_index_open_content";
+
 }

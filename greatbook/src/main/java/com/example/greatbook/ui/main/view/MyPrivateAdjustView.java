@@ -10,4 +10,6 @@ import com.example.greatbook.base.BaseView;
 
 public interface MyPrivateAdjustView extends BaseView{
     void initAvatar(Bitmap avatar);
+    void showLoading();
+    void showLoaded();
 }

@@ -12,10 +12,10 @@ import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.leancloud.BookTalkBean;
-import com.example.greatbook.beans.leancloud.User;
+import com.example.greatbook.model.leancloud.BookTalkBean;
+import com.example.greatbook.model.leancloud.User;
 import com.example.greatbook.utils.GlideUtils;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.widght.CircleImageView;
 
 import java.text.SimpleDateFormat;
@@ -57,8 +57,8 @@ public class BookTalkAdapter extends RecyclerView.Adapter<BookTalkAdapter.ViewHo
             @Override
             public void done(List<User> list, AVException e) {
                 if (e==null){
-                    GlideUtils.load(context,list.get(0).getAvatar().getUrl(),holder.ivAvatar);
-                    if (StringUtil.isEmpty(list.get(0).getName())){
+                    GlideUtils.load(list.get(0).getAvatar().getUrl(),holder.ivAvatar);
+                    if (StringUtils.isEmpty(list.get(0).getName())){
                         holder.tvName.setText("书心用户");
                     }else {
                         holder.tvName.setText(list.get(0).getName());

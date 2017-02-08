@@ -5,23 +5,13 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.avos.avoscloud.AVException;
@@ -33,16 +23,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
-import com.example.greatbook.beans.leancloud.User;
+import com.example.greatbook.model.leancloud.User;
 import com.example.greatbook.constants.IntentConstants;
-import com.example.greatbook.ui.main.presenter.MyPrivateAdjustPresenter;
-import com.example.greatbook.ui.main.presenter.MyPrivateAdjustPresenterImpl;
+import com.example.greatbook.ui.presenter.MyPrivateAdjustPresenter;
+import com.example.greatbook.ui.presenter.MyPrivateAdjustPresenterImpl;
 import com.example.greatbook.ui.main.view.MyPrivateAdjustView;
 import com.example.greatbook.utils.BitmapCompressUtils;
 import com.example.greatbook.utils.BlurBitmap;
 import com.example.greatbook.utils.FileUtils;
 import com.example.greatbook.utils.GlideUtils;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 import com.example.greatbook.utils.TransWindowUtils;
 import com.example.greatbook.utils.WaitNetPopupWindowUtils;
@@ -83,7 +73,7 @@ public class MyPrivateAdjustActivity extends BaseActivity implements SwipeRefres
         avatarUrl=user.getAvatar().getUrl();
         myPrivateAdjustPresenter=new MyPrivateAdjustPresenterImpl(this);
         setUserName();
-        GlideUtils.load(App.getInstance().getContext(),user.getAvatar().getUrl(),ivAvatar);
+        GlideUtils.load(user.getAvatar().getUrl(),ivAvatar);
         onRefresh();
         btnOk.setOnClickListener(this);
         ivAvatar.setOnClickListener(this);
@@ -96,7 +86,7 @@ public class MyPrivateAdjustActivity extends BaseActivity implements SwipeRefres
     }
 
     private void setUserName() {
-        if (StringUtil.isEmpty(user.getName())){
+        if (StringUtils.isEmpty(user.getName())){
             etNameAdjust.setText("书心用户");
         }else {
             etNameAdjust.setText(user.getName());
@@ -241,7 +231,7 @@ public class MyPrivateAdjustActivity extends BaseActivity implements SwipeRefres
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         srfAdjust.setRefreshing(false);
     }
 

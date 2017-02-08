@@ -26,4 +26,38 @@
     <dimen name="tablayout_h">45dp</dimen>
     <dimen name="talkabout_margin">16dp</dimen>
     <dimen name="talkabout_item_margin">12dp</dimen>
+    <dimen name="card_jok_margin_left">16dp</dimen>
+    <dimen name="card_jok_margin_bottom">4dp</dimen>
+    <dimen name="main_margin_left">6dp</dimen>
+
+    <dimen name="round_text_margin">8dp</dimen>
+    <dimen name="flow_stroke_width">1dp</dimen>
+
+    <dimen name="flowlayout_margin">10dp</dimen>
+    <dimen name="main_item_index_paddingtop">3dp</dimen>
+    <dimen name="main_item_index_paddingleft">12dp</dimen>
+
+    <dimen name="behavior_activity_horizontal_margin">16dp</dimen>
+    <dimen name="behavior_activity_vertical_margin">16dp</dimen>
+    <dimen name="behavior_fab_margin">16dp</dimen>
+    <dimen name="behavior_app_bar_height">180dp</dimen>
+    <dimen name="behavior_text_margin">16dp</dimen>
+    <dimen name="behavior_collapsed_header_height">75dp</dimen>
+
+    <dimen name="behavior_init_float_offset_y">130dp</dimen>
+    <dimen name="behavior_collapsed_float_offset_y">5dp</dimen>
+    <dimen name="behavior_init_float_margin">10dp</dimen>
+    <dimen name="behavior_collapsed_float_margin">5dp</dimen>
+    <dimen name="main_margin_half">4dp</dimen>
+    <dimen name="content_margin_top">4dp</dimen>
+    <dimen name="content_margin_left">8dp</dimen>
+    <dimen name="content_expandable_textsize">5sp</dimen>
+    <dimen name="content_padding">8dp</dimen>
+    <dimen name="actionbar_margin_left">6dp</dimen>
+    <dimen name="actionbar_padding">6dp</dimen>
+    <dimen name="talkabout_padding_left">12dp</dimen>
+    <dimen name="talkabout_padding_top">6dp</dimen>
+
+    <dimen name="toast_y_offset">64dip</dimen>
+    <dimen name="toast_text_size">14sp</dimen>
 </resources>

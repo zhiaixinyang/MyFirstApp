@@ -10,7 +10,7 @@ import android.widget.ViewFlipper;
 
 
 import com.example.greatbook.R;
-import com.example.greatbook.beans.HeadlineBean;
+import com.example.greatbook.model.HeadlineBean;
 
 import java.util.ArrayList;
 import java.util.List;

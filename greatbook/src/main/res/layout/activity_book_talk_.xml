@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <!-- 在RecyclerView的基础上聚合了刷新 -->
+    <com.example.greatbook.widght.refresh.LoadRefreshRecyclerView
+        android:id="@+id/rlv_talk_about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_load_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:src="@mipmap/list_load_more"
+        android:text="正在加载数据..."
+        android:textSize="22sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:src="@mipmap/list_load_more"
+        android:text="当前暂无数据..."
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/btn_talk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="@dimen/main_bottom_margin"
+        android:background="@drawable/round_black"
+        android:paddingBottom="@dimen/talkabout_padding_top"
+        android:paddingLeft="@dimen/talkabout_padding_left"
+        android:paddingRight="@dimen/talkabout_padding_left"
+        android:paddingTop="@dimen/talkabout_padding_top">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="吐槽/评论"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+</RelativeLayout>

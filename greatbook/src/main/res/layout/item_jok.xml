@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="240dp"
+    android:layout_gravity="center"
+    android:background="@drawable/round_stroke_gray_white"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/main_view"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/topPanel"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginBottom="@dimen/card_jok_margin_bottom"
+            android:layout_marginLeft="@dimen/card_jok_margin_left"
+            android:layout_marginRight="@dimen/card_jok_margin_left"
+            android:layout_marginTop="@dimen/card_jok_margin_left"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/left_line"
+                android:layout_width="2dp"
+                android:layout_height="15dp"
+                android:background="@color/gray" />
+
+            <TextView
+                android:id="@+id/line_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/card_jok_margin_left"
+                android:layout_gravity="center"
+                android:text="实时段子"
+                android:textColor="@color/gray"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_jok_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/line"
+            android:layout_below="@+id/topPanel"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="11111" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_above="@+id/tv_jok_time"
+            android:layout_marginBottom="@dimen/card_jok_margin_bottom"
+            android:layout_marginLeft="@dimen/card_jok_margin_left"
+            android:layout_marginRight="@dimen/card_jok_margin_left"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/tv_jok_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/card_jok_margin_bottom"
+            android:layout_marginRight="@dimen/card_jok_margin_left"
+            android:text="时间：2017-1-1"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</FrameLayout>

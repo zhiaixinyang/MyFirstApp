@@ -2,7 +2,6 @@ package com.example.greatbook.ui.main.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.View;
@@ -16,25 +15,20 @@ import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SaveCallback;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
-import com.example.greatbook.beans.leancloud.TalkAboutBean;
+import com.example.greatbook.model.leancloud.TalkAboutBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.utils.BitmapCompressUtils;
 import com.example.greatbook.utils.FileUtils;
 import com.example.greatbook.utils.NetUtil;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
-import com.example.greatbook.utils.TransWindowUtils;
 import com.example.greatbook.utils.WaitNetPopupWindowUtils;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import butterknife.BindView;
-
-import static android.R.attr.bitmap;
 
 /**
  * Created by MBENBEN on 2016/11/24.
@@ -125,7 +119,7 @@ public class TalkAboutActivity extends BaseActivity implements View.OnClickListe
     private void sendOk() {
         //网络可用
         if (NetUtil.isNetworkAvailable()) {
-            if (bitmap!=null&&!StringUtil.isEmpty(etContent.getText())) {
+            if (bitmap!=null&&!StringUtils.isEmpty(etContent.getText())) {
                 waitNetPopupWindowUtils.showWaitNetPopupWindow(this);
                     final TalkAboutBean talkAboutBean = new TalkAboutBean();
                     AVFile avFile = new AVFile(FileUtils.getRandomFileName(),FileUtils.getByteFromBitmap(bitmap));
@@ -161,4 +155,8 @@ public class TalkAboutActivity extends BaseActivity implements View.OnClickListe
         finish();
     }
 
+    @Override
+    public void showError(String msg) {
+        ToastUtil.toastShort(msg);
+    }
 }

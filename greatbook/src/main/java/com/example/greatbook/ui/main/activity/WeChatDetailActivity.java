@@ -1,14 +1,11 @@
 package com.example.greatbook.ui.main.activity;
 
 import android.content.Intent;
-import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
 import com.example.greatbook.constants.IntentConstants;
+import com.example.greatbook.utils.ToastUtil;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -81,5 +78,10 @@ public class WeChatDetailActivity extends BaseActivity {
             }
         });
         wvTechContent.loadUrl(url);
+    }
+
+    @Override
+    public void showError(String msg) {
+        ToastUtil.toastShort(msg);
     }
 }

@@ -3,41 +3,29 @@ package com.example.greatbook.ui.main.fragment;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseLazyFragment;
-import com.example.greatbook.beans.leancloud.TalkAboutBean;
+import com.example.greatbook.model.leancloud.TalkAboutBean;
+import com.example.greatbook.constants.Constants;
 import com.example.greatbook.ui.main.activity.TalkAboutActivity;
-import com.example.greatbook.ui.main.adapter.TalkAboutAdapter;
 import com.example.greatbook.ui.main.adapter.TalkAboutAdapter_1;
-import com.example.greatbook.ui.main.presenter.TalkAboutPresenter;
-import com.example.greatbook.ui.main.presenter.TalkAboutPresenterImpl;
+import com.example.greatbook.ui.presenter.TalkAboutPresenter;
+import com.example.greatbook.ui.presenter.TalkAboutPresenterImpl;
 import com.example.greatbook.ui.main.view.TalkAboutView;
-import com.example.greatbook.utils.DensityUtil;
 import com.example.greatbook.utils.NetUtil;
-import com.example.greatbook.utils.SnackbarUtil;
+import com.example.greatbook.utils.SnackbarUtils;
 import com.example.greatbook.utils.ToastUtil;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
 import com.github.jdsjlzx.util.RecyclerViewStateUtils;
-import com.github.jdsjlzx.util.RecyclerViewUtils;
 import com.github.jdsjlzx.view.LoadingFooter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -55,15 +43,13 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
     private LinearLayoutManager linearLayoutManager;
     private LRecyclerViewAdapter mLRecyclerViewAdapter = null;
 
-    /**每一页展示多少条数据*/
-    private static final int REQUEST_COUNT = 5;
     private int MAXT_BUN;
     private int currentNum=0;
     //网络错误的情况下的点击重试的监听事件
     private View.OnClickListener mFooterClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, REQUEST_COUNT, LoadingFooter.State.Loading, null);
+            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, Constants.RLV_PAGE_COUNT, LoadingFooter.State.Loading, null);
             talkAboutPresenter.getMoreTalkAbout(currentNum);
         }
     };
@@ -82,7 +68,7 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
 
         rlvTalkAbout.setAdapter(mLRecyclerViewAdapter);
         rlvTalkAbout.setRefreshProgressStyle(ProgressStyle.BallBeat);
-        rlvTalkAbout.setArrowImageView(R.mipmap.icon_arrow);
+        rlvTalkAbout.setArrowImageView(R.mipmap.list_load_more);
         btnTalkAbout.setOnClickListener(this);
         rlvTalkAbout.setLayoutManager(linearLayoutManager);
         rlvTalkAbout.setLScrollListener(new LRecyclerView.LScrollListener() {
@@ -93,7 +79,6 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
 
             @Override
             public void onScrollUp() {
-
                 btnTalkAbout.setClickable(false);
                 AnimatorSet set=new AnimatorSet();
                 set.playTogether(
@@ -124,15 +109,15 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
                 }else {
                     if (NetUtil.isNetworkAvailable()) {
                         if (currentNum < MAXT_BUN) {
-                            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, REQUEST_COUNT, LoadingFooter.State.Loading, null);
+                            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, Constants.RLV_PAGE_COUNT, LoadingFooter.State.Loading, null);
                             talkAboutPresenter.getMoreTalkAbout(currentNum);
                         } else {
-                            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, REQUEST_COUNT, LoadingFooter.State.TheEnd, null);
+                            RecyclerViewStateUtils.setFooterViewState(getActivity(), rlvTalkAbout, Constants.RLV_PAGE_COUNT, LoadingFooter.State.TheEnd, null);
                         }
                     }else{
                         //未连接网络
                         RecyclerViewStateUtils.setFooterViewState(getActivity(),
-                                rlvTalkAbout, REQUEST_COUNT,
+                                rlvTalkAbout, Constants.RLV_PAGE_COUNT,
                                 LoadingFooter.State.NetWorkError,
                                 mFooterClick);
                     }
@@ -164,7 +149,7 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
 
     @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(getView().getRootView(),msg);
+        SnackbarUtils.showShort(getView().getRootView(),msg);
     }
 
     @Override
@@ -173,9 +158,8 @@ public class TalkAboutFragment extends BaseLazyFragment implements TalkAboutView
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         rlvTalkAbout.refreshComplete();
-        mLRecyclerViewAdapter.notifyDataSetChanged();
     }
 
 

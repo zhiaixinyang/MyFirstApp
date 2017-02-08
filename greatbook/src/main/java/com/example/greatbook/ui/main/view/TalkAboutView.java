@@ -1,7 +1,7 @@
 package com.example.greatbook.ui.main.view;
 
 import com.example.greatbook.base.BaseView;
-import com.example.greatbook.beans.leancloud.TalkAboutBean;
+import com.example.greatbook.model.leancloud.TalkAboutBean;
 
 import java.util.List;
 
@@ -13,4 +13,6 @@ public interface TalkAboutView extends BaseView{
     void initData(List<TalkAboutBean> datas);
     void setMoreData(List<TalkAboutBean> datas);
     void getAllTalkNum(int num);
+    void showLoading();
+    void showLoaded();
 }

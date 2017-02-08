@@ -1,7 +1,7 @@
 package com.example.greatbook.ui.book.view;
 
 import com.example.greatbook.base.BaseView;
-import com.example.greatbook.beans.BookKindBean;
+import com.example.greatbook.model.BookKindBean;
 
 import java.util.List;
 
@@ -11,4 +11,6 @@ import java.util.List;
 
 public interface BookKindView extends BaseView{
     void initDatas(List<BookKindBean> datas);
+    void showLoading();
+    void showLoaded();
 }

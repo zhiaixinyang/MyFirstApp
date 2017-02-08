@@ -1,6 +1,6 @@
 package com.example.greatbook.apis;
 
-import com.example.greatbook.beans.WeChatItemBean;
+import com.example.greatbook.model.WeChatItemBean;
 import java.util.List;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

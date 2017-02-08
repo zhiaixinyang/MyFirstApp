@@ -15,11 +15,13 @@ import com.example.greatbook.App;
 import com.example.greatbook.MySharedPreferences;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
-import com.example.greatbook.ui.main.fragment.BookKindListFragment;
+import com.example.greatbook.ui.main.fragment.MainFristFragment;
 import com.example.greatbook.ui.main.fragment.MyPrivateFragment;
+import com.example.greatbook.ui.main.fragment.NewTalkAboutFragment;
 import com.example.greatbook.ui.main.fragment.TalkAboutFragment;
 import com.example.greatbook.utils.ToastUtil;
 import com.example.greatbook.widght.ScaleTransitionPagerTitleView;
+import com.example.greatbook.widght.toast.SweetToast;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -45,8 +47,8 @@ public class MainActivity extends BaseActivity{
     @BindView(R.id.magic_indicator) MagicIndicator magicIndicator;
 
     private MyPrivateFragment myPrivateFragment;
-    private BookKindListFragment bookKindListFragment;
-    //private TalkAboutFragment talkAboutFragment;
+    private MainFristFragment mainFristFragment;
+    private NewTalkAboutFragment newTalkAboutFragment;
     private TalkAboutFragment talkAboutFragment;
 
     private String[] titles={"名著","吐槽","我的"};
@@ -58,17 +60,19 @@ public class MainActivity extends BaseActivity{
 
     @Override
     public void init() {
+
         myPrivateFragment=new MyPrivateFragment();
-        bookKindListFragment=new BookKindListFragment();
-        //talkAboutFragment =new TalkAboutFragment();
+        mainFristFragment =new MainFristFragment();
+        newTalkAboutFragment =new NewTalkAboutFragment();
         talkAboutFragment =new TalkAboutFragment();
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
                 if (position==0){
-                    return bookKindListFragment;
+                    return mainFristFragment;
                 }else if(position==1){
-                    return talkAboutFragment;
+                    return newTalkAboutFragment;
+                    //return talkAboutFragment;
                 }
                 return myPrivateFragment;
             }
@@ -141,5 +145,10 @@ public class MainActivity extends BaseActivity{
             } else {
             }
         }
+    }
+
+    @Override
+    public void showError(String msg) {
+        ToastUtil.toastShort(msg);
     }
 }

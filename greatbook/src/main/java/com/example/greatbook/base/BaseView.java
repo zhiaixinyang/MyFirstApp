@@ -7,6 +7,5 @@ package com.example.greatbook.base;
 public interface BaseView {
 
     void showError(String msg);
-    void showLoading();
-    void hideLoading();
+
 }

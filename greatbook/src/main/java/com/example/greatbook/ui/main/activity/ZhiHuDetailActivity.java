@@ -2,20 +2,19 @@ package com.example.greatbook.ui.main.activity;
 
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.greatbook.App;
+
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.ZhihuDetailBean;
+import com.example.greatbook.model.ZhihuDetailBean;
 import com.example.greatbook.constants.IntentConstants;
-import com.example.greatbook.ui.main.presenter.ZhiHuDetailPresenter;
-import com.example.greatbook.ui.main.presenter.ZhiHuDetailPresenterImpl;
+import com.example.greatbook.ui.presenter.ZhiHuDetailPresenter;
+import com.example.greatbook.ui.presenter.ZhiHuDetailPresenterImpl;
 import com.example.greatbook.ui.main.view.ZhiHuDetailView;
 import com.example.greatbook.utils.GlideUtils;
 import com.example.greatbook.utils.HtmlUtil;
-import com.example.greatbook.utils.SnackbarUtil;
+import com.example.greatbook.utils.SnackbarUtils;
 import com.example.greatbook.utils.TransWindowUtils;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -69,7 +68,7 @@ public class ZhiHuDetailActivity extends NewBaseActivity<ZhiHuDetailPresenterImp
     @Override
     public void showContent(ZhihuDetailBean zhihuDetailBean) {
         imgUrl = zhihuDetailBean.getImage();
-        GlideUtils.load(App.getInstance().getContext(), zhihuDetailBean.getImage(), detailBarImage);
+        GlideUtils.load(zhihuDetailBean.getImage(), detailBarImage);
         clpToolbar.setTitle(zhihuDetailBean.getTitle());
         detailBarCopyright.setText(zhihuDetailBean.getImage_source());
         String htmlData = HtmlUtil.createHtmlData(zhihuDetailBean.getBody(),zhihuDetailBean.getCss(),zhihuDetailBean.getJs());
@@ -78,7 +77,7 @@ public class ZhiHuDetailActivity extends NewBaseActivity<ZhiHuDetailPresenterImp
 
     @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(getWindow().getDecorView(),msg);
+        SnackbarUtils.showShort(getWindow().getDecorView(),msg);
     }
 
     @Override
@@ -87,7 +86,7 @@ public class ZhiHuDetailActivity extends NewBaseActivity<ZhiHuDetailPresenterImp
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         viewLoading.stop();
     }
 }

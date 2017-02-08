@@ -10,12 +10,12 @@ import android.widget.TextView;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.WeChatItemBean;
+import com.example.greatbook.model.WeChatItemBean;
 import com.example.greatbook.ui.main.adapter.WeChatListAdapter;
-import com.example.greatbook.ui.main.presenter.WeChatListPresenter;
-import com.example.greatbook.ui.main.presenter.WeChatListPresenterImpl;
+import com.example.greatbook.ui.presenter.WeChatListPresenter;
+import com.example.greatbook.ui.presenter.WeChatListPresenterImpl;
 import com.example.greatbook.ui.main.view.WeChatListView;
-import com.example.greatbook.utils.SnackbarUtil;
+import com.example.greatbook.utils.SnackbarUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +70,7 @@ public class WeChatListActivity extends NewBaseActivity<WeChatListPresenterImpl>
 
     @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(rvWechatList,msg);
+        SnackbarUtils.showShort(rvWechatList,msg);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class WeChatListActivity extends NewBaseActivity<WeChatListPresenterImpl>
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         swipeRefresh.setRefreshing(false);
     }
 

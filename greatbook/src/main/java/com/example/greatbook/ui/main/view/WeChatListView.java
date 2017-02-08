@@ -1,7 +1,7 @@
 package com.example.greatbook.ui.main.view;
 
 import com.example.greatbook.base.BaseView;
-import com.example.greatbook.beans.WeChatItemBean;
+import com.example.greatbook.model.WeChatItemBean;
 
 import java.util.List;
 
@@ -11,4 +11,6 @@ import java.util.List;
 
 public interface WeChatListView extends BaseView{
     void showWeChatList(List<WeChatItemBean> weChatItemBean);
+    void showLoading();
+    void showLoaded();
 }

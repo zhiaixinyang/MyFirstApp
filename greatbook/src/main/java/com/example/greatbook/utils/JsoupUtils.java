@@ -1,18 +1,10 @@
 package com.example.greatbook.utils;
 
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVFile;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVRelation;
-import com.avos.avoscloud.SaveCallback;
-import com.example.greatbook.beans.BookDesBean;
-import com.example.greatbook.beans.BookDetailBean;
-import com.example.greatbook.beans.BookKindBean;
-import com.example.greatbook.beans.BookKindListBean;
-import com.example.greatbook.beans.NewBookBean;
-import com.example.greatbook.beans.leancloud.LBookDesCatalogue;
-import com.example.greatbook.beans.leancloud.LBookKindBean;
-import com.example.greatbook.beans.leancloud.LBookKindListBean;
+import com.example.greatbook.model.BookDesBean;
+import com.example.greatbook.model.BookDetailBean;
+import com.example.greatbook.model.BookKindBean;
+import com.example.greatbook.model.BookKindListBean;
+import com.example.greatbook.model.NewBookBean;
 import com.example.greatbook.constants.Url;
 
 import org.jsoup.Jsoup;
@@ -21,8 +13,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -100,7 +90,7 @@ public class JsoupUtils {
             /**
              * 两个网站文章链接不同，所以进行判断。
              */
-            if (StringUtil.isEquals(url.substring(0,1),"/")) {
+            if (StringUtils.isEquals(url.substring(0,1),"/")) {
                 bookKindBean.setUrl(Url.HOST + url);
             }else{
                 bookKindBean.setUrl(url);
@@ -153,7 +143,7 @@ public class JsoupUtils {
         Document document=Jsoup.parse(html);
         //解析目录(Catalogue)信息
         //解析描述(Des)信息
-        if (!StringUtil.isEmpty(document.select("p.des").first().text())) {
+        if (!StringUtils.isEmpty(document.select("p.des").first().text())) {
             bookDesBean.setDes(document.select("p.des").first().text());
         }else{
             bookDesBean.setDes("本书暂没有简介。");

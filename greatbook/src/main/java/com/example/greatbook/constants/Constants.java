@@ -17,4 +17,9 @@ public class Constants {
     public static String LEANCLOUD_APP_ID ="QXRP1vo8DnS6uGs7lsj43Mqz-gzGzoHsz";
 
     public static String TIANXING_APP_KEY="6ab0e95b0a7a25623e097b14a7c983b8";
+
+    public static final int RLV_PAGE_COUNT = 6;
+
+
+    public static final String JOK_APP_KEY="92e45e290c194f53665fa891af8a2c05";
 }

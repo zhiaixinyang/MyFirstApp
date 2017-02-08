@@ -9,13 +9,12 @@ import android.widget.TextView;
 
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.BookDetailBean;
+import com.example.greatbook.model.BookDetailBean;
 import com.example.greatbook.constants.IntentConstants;
-import com.example.greatbook.ui.book.presenter.BookDetailPresenterImpl;
+import com.example.greatbook.ui.presenter.BookDetailPresenterImpl;
 import com.example.greatbook.ui.book.view.BookDetailView;
-import com.example.greatbook.ui.main.activity.MainActivity;
 import com.example.greatbook.utils.HtmlUtil;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -118,7 +117,7 @@ public class BookDetailActivity extends NewBaseActivity<BookDetailPresenterImpl>
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         srfWaitNet.setRefreshing(false);
     }
 
@@ -133,7 +132,7 @@ public class BookDetailActivity extends NewBaseActivity<BookDetailPresenterImpl>
          *
          * 如果相等说明当前url已经是本书的第一章
          */
-        if (StringUtil.isEquals(String.valueOf(num),firstUrlNum)){
+        if (StringUtils.isEquals(String.valueOf(num),firstUrlNum)){
             ToastUtil.toastShort("已经是第一章了！！");
         }else {
             currentUrl = currentUrl.replace(
@@ -145,7 +144,7 @@ public class BookDetailActivity extends NewBaseActivity<BookDetailPresenterImpl>
     }
     public void readNext(int num){
         //如果相等说明当前url已经是本书的最后一章
-        if (StringUtil.isEquals(String.valueOf(num),endUrlNum)){
+        if (StringUtils.isEquals(String.valueOf(num),endUrlNum)){
             ToastUtil.toastShort("已经是最后一章了！！");
         }else {
             currentUrl = currentUrl.replace(
@@ -160,10 +159,10 @@ public class BookDetailActivity extends NewBaseActivity<BookDetailPresenterImpl>
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_front:
-                readFront(StringUtil.getNumFromString(currentUrl));
+                readFront(StringUtils.getNumFromString(currentUrl));
                 break;
             case R.id.btn_late:
-                readNext(StringUtil.getNumFromString(currentUrl));
+                readNext(StringUtils.getNumFromString(currentUrl));
                 break;
             case R.id.btn_back:
                 back();

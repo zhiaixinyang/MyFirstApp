@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.DailyListBean;
+import com.example.greatbook.model.DailyListBean;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 import com.example.greatbook.utils.GlideUtils;
 import com.example.greatbook.widght.ScaleCircleNavigator;
@@ -97,7 +97,7 @@ public class ZhiHuListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 //未读
                 ((ContentViewHolder)holder).title.setTextColor(ContextCompat.getColor(context,R.color.black));
             }
-            GlideUtils.load(context, datas.get(position).getImages().get(0),((ContentViewHolder)holder).image);
+            GlideUtils.load( datas.get(position).getImages().get(0),((ContentViewHolder)holder).image);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -4,12 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,24 +17,22 @@ import com.avos.avoscloud.AVFile;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
 import com.avos.avoscloud.SignUpCallback;
-import com.bumptech.glide.Glide;
 import com.example.greatbook.App;
 import com.example.greatbook.MySharedPreferences;
 import com.example.greatbook.R;
 import com.example.greatbook.base.BaseActivity;
-import com.example.greatbook.beans.leancloud.User;
+import com.example.greatbook.model.leancloud.User;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.utils.BitmapCompressUtils;
 import com.example.greatbook.utils.FileUtils;
 import com.example.greatbook.utils.GlideUtils;
 import com.example.greatbook.utils.NetUtil;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 import com.example.greatbook.utils.TransWindowUtils;
 import com.example.greatbook.utils.WaitNetPopupWindowUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by MBENBEN on 2016/10/20.
@@ -93,7 +87,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 imagePath = FileUtils.getPathUrlFromUri(App.getInstance().getContext(),selectImageUri);
                 bmp= BitmapCompressUtils.zoomImage(FileUtils.getBitmap(imagePath), 150,150);
                 if (selectImageUri!=null){
-                    GlideUtils.load(App.getInstance().getContext(),FileUtils.getByteFromBitmap(bmp),ivAvatar);
+                    GlideUtils.load(FileUtils.getByteFromBitmap(bmp),ivAvatar);
                 }
             }
         }
@@ -102,10 +96,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private void login() {
         //先判断网路问题
         if (NetUtil.isNetworkAvailable()){
-            if (!StringUtil.isEmpty(imagePath)
-                    && !StringUtil.isEmpty(etAccount.getText().toString())
-                    && !StringUtil.isEmpty(etPassWord.getText().toString())
-                    && !StringUtil.isEmpty(etName.getText().toString())) {
+            if (!StringUtils.isEmpty(imagePath)
+                    && !StringUtils.isEmpty(etAccount.getText().toString())
+                    && !StringUtils.isEmpty(etPassWord.getText().toString())
+                    && !StringUtils.isEmpty(etName.getText().toString())) {
                 waitNetPopupWindowUtils.showWaitNetPopupWindow(this);
                 final User user = new User();
                 user.setUsername(etAccount.getText().toString());
@@ -154,5 +148,10 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onDismiss() {
         TransWindowUtils.setBackgroundAlpha(this,1f);
+    }
+
+    @Override
+    public void showError(String msg) {
+        ToastUtil.toastShort(msg);
     }
 }

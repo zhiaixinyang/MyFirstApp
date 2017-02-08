@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.BookKindBean;
+import com.example.greatbook.model.BookKindBean;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 import com.example.greatbook.utils.GlideUtils;
 
@@ -41,7 +41,7 @@ public class BookKindAdapter extends RecyclerView.Adapter<BookKindAdapter.ViewHo
     @Override
     public void onBindViewHolder(BookKindAdapter.ViewHolder holder, final int position) {
         BookKindBean bookKindBean=datas.get(position);
-        GlideUtils.load(context,bookKindBean.getUrlPhoto(),holder.ivBookPhoto);
+        GlideUtils.load(bookKindBean.getUrlPhoto(),holder.ivBookPhoto);
         holder.tvBookTitle.setText(bookKindBean.getTitle());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

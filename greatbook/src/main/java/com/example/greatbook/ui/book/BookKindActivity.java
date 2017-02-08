@@ -10,16 +10,16 @@ import android.widget.TextView;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.BookKindBean;
-import com.example.greatbook.beans.BookKindListBean;
+import com.example.greatbook.model.BookKindBean;
+import com.example.greatbook.model.BookKindListBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 import com.example.greatbook.ui.book.adapter.BookKindAdapter;
-import com.example.greatbook.ui.book.presenter.BookKindPresenter;
-import com.example.greatbook.ui.book.presenter.BookKindPresenterImpl;
+import com.example.greatbook.ui.presenter.BookKindPresenter;
+import com.example.greatbook.ui.presenter.BookKindPresenterImpl;
 import com.example.greatbook.ui.book.view.BookKindView;
 import com.example.greatbook.ui.main.activity.MainActivity;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 import com.example.greatbook.utils.ToastUtil;
 
 import java.util.List;
@@ -105,13 +105,13 @@ public class BookKindActivity extends NewBaseActivity<BookKindPresenterImpl> imp
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         srfBookLind.setRefreshing(false);
     }
 
     @Override
     public void onRefresh() {
-        if (StringUtil.isEmpty(path)){
+        if (StringUtils.isEmpty(path)){
             ToastUtil.toastShort("数据获取异常。");
         }else{
             //默认开始穿0，此变量只会影响武侠类的解析模式

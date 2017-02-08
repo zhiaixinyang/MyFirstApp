@@ -1,7 +1,7 @@
 package com.example.greatbook.ui.main.view;
 
 import com.example.greatbook.base.BaseView;
-import com.example.greatbook.beans.NewBookBean;
+import com.example.greatbook.model.NewBookBean;
 
 import java.util.List;
 
@@ -11,4 +11,6 @@ import java.util.List;
 
 public interface NewBookView extends BaseView{
     void initData(List<NewBookBean> data);
+    void showLoading();
+    void showLoaded();
 }

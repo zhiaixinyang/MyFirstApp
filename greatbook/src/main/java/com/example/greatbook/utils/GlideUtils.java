@@ -12,6 +12,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.example.greatbook.App;
 import com.example.greatbook.R;
 
 import static android.R.attr.width;
@@ -22,18 +23,19 @@ import static android.support.design.R.attr.height;
  */
 
 public class GlideUtils {
-    public static void load(Context context, String url, ImageView iv) {
+    private static Context context= App.getInstance().getContext();
+    public static void load(String url, ImageView iv) {
         Glide.with(context).load(url).crossFade().diskCacheStrategy(DiskCacheStrategy.NONE).into(iv);
     }
 
-    public static void load(Context context, byte[] url, ImageView iv) {
+    public static void load(byte[] url, ImageView iv) {
         Glide.with(context).load(url).crossFade().diskCacheStrategy(DiskCacheStrategy.NONE).into(iv);
     }
 
-    public static void load(Context context, int url, ImageView iv) {
+    public static void load(int url, ImageView iv) {
         Glide.with(context).load(url).crossFade().diskCacheStrategy(DiskCacheStrategy.NONE).into(iv);
     }
-    public static void loadCircle(Context context, String url, ImageView iv) {
+    public static void loadCircle( String url, ImageView iv) {
         Glide.with(context).load(url).transform(new GlideCircleTransform(context)).into(iv);
     }
 

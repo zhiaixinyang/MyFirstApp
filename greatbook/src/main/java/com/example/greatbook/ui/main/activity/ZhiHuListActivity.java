@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.NewBaseActivity;
-import com.example.greatbook.beans.DailyListBean;
+import com.example.greatbook.model.DailyListBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.OnItemClickListenerInAdapter;
 import com.example.greatbook.ui.main.adapter.ZhiHuListAdapter;
-import com.example.greatbook.ui.main.presenter.ZhiHuListPresenter;
-import com.example.greatbook.ui.main.presenter.ZhiHuListPresenterImpl;
+import com.example.greatbook.ui.presenter.ZhiHuListPresenter;
+import com.example.greatbook.ui.presenter.ZhiHuListPresenterImpl;
 import com.example.greatbook.ui.main.view.ZhiHuListView;
-import com.example.greatbook.utils.SnackbarUtil;
+import com.example.greatbook.utils.SnackbarUtils;
 import com.victor.loading.rotate.RotateLoading;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class ZhiHuListActivity extends NewBaseActivity<ZhiHuListPresenterImpl> i
 
     @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(rvDailyList,msg);
+        SnackbarUtils.showShort(rvDailyList,msg);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ZhiHuListActivity extends NewBaseActivity<ZhiHuListPresenterImpl> i
     }
 
     @Override
-    public void hideLoading() {
+    public void showLoaded() {
         swipeRefresh.setRefreshing(false);
     }
 

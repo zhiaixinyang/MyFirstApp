@@ -108,8 +108,12 @@ public abstract class BaseLazyFragment<T extends BasePresenter> extends Fragment
 
     protected abstract int getContentViewLayoutID();
     protected abstract void initViewsAndEvents(View view);
+    //第一次fragment可见（进行初始化工作initViewsAndEvents）
     protected abstract void onFirstUserVisible();
+    //fragment可见（切换回来或者onResume）
     protected abstract void onUserVisible();
+
     private void onFirstUserInvisible() { }
+    //fragment不可见（切换掉或者onPause）
     protected abstract void onUserInvisible();
 }

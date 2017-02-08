@@ -3,14 +3,10 @@ package com.example.greatbook.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.ui.book.view.BookDesView;
-import com.example.greatbook.ui.book.view.BookDetailView;
 import com.example.greatbook.utils.SystemBarTintManager;
-import com.example.greatbook.utils.TransWindowUtils;
 
 import butterknife.ButterKnife;
 

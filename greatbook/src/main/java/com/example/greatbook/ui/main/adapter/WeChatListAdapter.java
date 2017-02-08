@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.example.greatbook.App;
 import com.example.greatbook.R;
-import com.example.greatbook.beans.WeChatItemBean;
+import com.example.greatbook.model.WeChatItemBean;
 import com.example.greatbook.constants.IntentConstants;
 import com.example.greatbook.ui.main.activity.WeChatDetailActivity;
-import com.example.greatbook.ui.main.presenter.WeChatListPresenterImpl;
+import com.example.greatbook.ui.presenter.WeChatListPresenterImpl;
 import com.example.greatbook.utils.GlideUtils;
 
 import java.util.List;
@@ -47,7 +47,7 @@ public class WeChatListAdapter extends RecyclerView.Adapter<WeChatListAdapter.Vi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        GlideUtils.load(context,mList.get(position).getPicUrl(),holder.ivImage);
+        GlideUtils.load(mList.get(position).getPicUrl(),holder.ivImage);
         holder.tvTitle.setText(mList.get(position).getTitle());
         holder.tvFrom.setText(mList.get(position).getDescription());
         holder.tvTime.setText(mList.get(position).getCtime());

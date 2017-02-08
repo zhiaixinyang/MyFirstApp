@@ -1,9 +1,15 @@
 package com.example.greatbook.apis;
 
+import android.provider.ContactsContract;
+
 import com.example.greatbook.InputStreamConvertFactory;
-import com.example.greatbook.beans.DailyListBean;
-import com.example.greatbook.beans.WeChatItemBean;
-import com.example.greatbook.beans.ZhihuDetailBean;
+import com.example.greatbook.model.DailyListBean;
+import com.example.greatbook.model.GrammarContent;
+import com.example.greatbook.model.GrammarKind;
+import com.example.greatbook.model.GrammarKindIndex;
+import com.example.greatbook.model.MainJokBean;
+import com.example.greatbook.model.WeChatItemBean;
+import com.example.greatbook.model.ZhihuDetailBean;
 import com.example.greatbook.constants.Constants;
 import com.example.greatbook.utils.NetUtil;
 
@@ -32,22 +38,16 @@ public class RetrofitHelper {
     private GreatBookApis greatBookApis=null;
     private ZhihuApis zhihuApis=null;
     private WeChatApis weChatApis=null;
+    private JuHeApis juHeApis=null;
+    private GrammarApis grammarApis=null;
 
     public RetrofitHelper(){
         init();
         greatBookApis=getGreatBookApis();
         zhihuApis=getZhiHuApis();
         weChatApis=getWeChatApis();
-    }
-
-    private WeChatApis getWeChatApis() {
-        Retrofit retrofit=new Retrofit.Builder()
-                .baseUrl(WeChatApis.HOST)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
-        return retrofit.create(WeChatApis.class);
+        juHeApis=getJuHeApis();
+        grammarApis=getGrammarApis();
     }
 
     private void init(){
@@ -100,6 +100,26 @@ public class RetrofitHelper {
         okHttpClient = builder.build();
     }
 
+    private WeChatApis getWeChatApis() {
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(WeChatApis.HOST)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(WeChatApis.class);
+    }
+
+    private GrammarApis getGrammarApis() {
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(GrammarApis.BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        return retrofit.create(GrammarApis.class);
+    }
+
     private GreatBookApis getGreatBookApis() {
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl(GreatBookApis.HOST)
@@ -118,6 +138,16 @@ public class RetrofitHelper {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(ZhihuApis.class);
+    }
+
+    public JuHeApis getJuHeApis() {
+        Retrofit retrofit=new Retrofit.Builder()
+                .baseUrl(JuHeApis.HOST)
+                .client(okHttpClient)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        return retrofit.create(JuHeApis.class);
     }
 
     public Observable<String> getBookKindList(){
@@ -154,6 +184,35 @@ public class RetrofitHelper {
 
     public Observable<WeChatHttpResponse<List<WeChatItemBean>>> getWechatSearchList(int num, int page, String word) {
         return weChatApis.getWeChatHotSearch(Constants.TIANXING_APP_KEY, num, page, word);
+    }
+
+    public Observable<MainJokBean> getMainJokData(){
+        return juHeApis.getMainJokData(Constants.JOK_APP_KEY,
+                "2","10","asc","1418745237");
+    }
+    public Observable<List<GrammarKind>> getGrammarKindList(){
+        return grammarApis.getGrammarKindList();
+    }
+
+
+    public Observable<List<GrammarKindIndex>> getGrammarKindIndexTopList(){
+        return grammarApis.getGrammarKindIndexTopList();
+    }
+
+    public Observable<List<GrammarKindIndex>> queryGrammarKindIndexByHref(String href){
+        return grammarApis.queryGrammarKindIndexListByHref(href);
+    }
+
+    public Observable<GrammarContent> queryGrammarContentByHref(String href){
+        return grammarApis.queryContentByHref(href);
+    }
+
+    public Observable<List<GrammarContent>> exploreContentByQuery(String query){
+        return grammarApis.queryContentByExplore(query);
+    }
+
+    public Observable<List<GrammarKindIndex>> queryGrammarKindByExplore(String query){
+        return grammarApis.queryGrammarKindByExplore(query);
     }
 
 }

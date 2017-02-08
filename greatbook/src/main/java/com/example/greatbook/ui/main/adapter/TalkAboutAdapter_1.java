@@ -14,10 +14,10 @@ import com.avos.avoscloud.FindCallback;
 import com.example.greatbook.App;
 import com.example.greatbook.R;
 import com.example.greatbook.base.ListBaseAdapter;
-import com.example.greatbook.beans.leancloud.TalkAboutBean;
-import com.example.greatbook.beans.leancloud.User;
+import com.example.greatbook.model.leancloud.TalkAboutBean;
+import com.example.greatbook.model.leancloud.User;
 import com.example.greatbook.utils.GlideUtils;
-import com.example.greatbook.utils.StringUtil;
+import com.example.greatbook.utils.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -54,9 +54,8 @@ public class TalkAboutAdapter_1 extends ListBaseAdapter<TalkAboutBean>{
                 @Override
                 public void done(List<User> list, AVException e) {
                     if (e == null) {
-                        GlideUtils.loadCircle(context,
-                                list.get(0).getAvatar().getUrl(), ((ViewHolder) holder).ivAvatar);
-                        if (StringUtil.isEmpty(list.get(0).getName())) {
+                        GlideUtils.loadCircle(list.get(0).getAvatar().getUrl(), ((ViewHolder) holder).ivAvatar);
+                        if (StringUtils.isEmpty(list.get(0).getName())) {
                             ((ViewHolder) holder).tvName.setText("书心用户");
                         } else {
                             ((ViewHolder) holder).tvName.setText(list.get(0).getName());
@@ -64,7 +63,7 @@ public class TalkAboutAdapter_1 extends ListBaseAdapter<TalkAboutBean>{
                     }
                 }
             });
-            GlideUtils.load(context, talkAboutBean.getContentPhoto().getUrl(), ((ViewHolder) holder).ivPhoto);
+            GlideUtils.load(talkAboutBean.getContentPhoto().getUrl(), ((ViewHolder) holder).ivPhoto);
             ((ViewHolder) holder).tvContent.setText(talkAboutBean.getContent());
             ((ViewHolder) holder).tvTime.setText(simpleDateFormat.format(talkAboutBean.getCreatedAt()));
     }

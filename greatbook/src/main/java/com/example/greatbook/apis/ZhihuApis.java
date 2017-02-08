@@ -1,8 +1,8 @@
 package com.example.greatbook.apis;
 
 
-import com.example.greatbook.beans.DailyListBean;
-import com.example.greatbook.beans.ZhihuDetailBean;
+import com.example.greatbook.model.DailyListBean;
+import com.example.greatbook.model.ZhihuDetailBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
